@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 let invoices: { name: string; number: number; amount: string; due: string }[] =
   [];
 
@@ -40,4 +41,10 @@ export function getInvoices() {
 
 export function getInvoice(number: unknown) {
   return invoices.find((invoice) => invoice.number === number);
+}
+
+export function deleteInvoice(number: any) {
+  invoices = invoices.filter(
+    (invoice) => invoice.number !== number
+  );
 }
